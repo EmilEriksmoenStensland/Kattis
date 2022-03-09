@@ -1,13 +1,9 @@
 fun main() {
-  val n = readLine()!!.toInt()
-  repeat (n) {
-    val m = readLine()!!.split(" ")
-    val mid = m.map {it.toInt()}
+  repeat (readLine()!!.toInt()) {
+    val mid = readLine()!!.split(" ").map { it.toInt() }
     var sum = 0
-    var prev = mid[0]
     for (i in 1 until mid.size -1) {
-      if (prev*2 < mid[i]) sum += mid[i] - prev*2
-      prev = mid[i]
+      if (mid[i-1]*2 < mid[i]) sum += mid[i] - mid[i-1]*2
     }
     println(sum)
   }
